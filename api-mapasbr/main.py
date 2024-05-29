@@ -29,7 +29,9 @@ async def root(lat: str,long: str):
         descricao = requisicao['weather'][0]['description'] # ['weather'][0] é o campo onde a descrição está dentro o campo ['description'] serve apenas para pegar a informação de descrição do céu/temperatura que está dentro de ['weather'][0] 
         temperatura = requisicao['main']['temp']- 273.15 #
     
-        return {"message": f'Sua cidade é {nomeCidade}, O tempo agora está {descricao},A temperatura agora está {temperatura:.0f}°C'}
+        return {"message": f'Sua cidade é {nomeCidade}, O tempo agora está {descricao}, a temperatura é',
+        "temperatura":f'{temperatura:.0f}°C'       
+                }
     except Exception as e:
         return {"message": f'Não foi possivel encontrar Latitude {lat} e Longitude {long}' }
   
