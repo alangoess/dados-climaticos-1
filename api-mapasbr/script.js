@@ -20,7 +20,7 @@ document.querySelectorAll('path').forEach((el) => {
        const longitude = coordinatesDiv.getAttribute('data-long');
        console.log("Latitude da Capital = " + latitude);
        console.log("Longitude da Capital = " + longitude);
-	   const apiUrl = 'http://192.168.100.6:8000/'+ latitude +'/'+ longitude;
+	   const apiUrl = 'http://192.168.100.233:8000/'+ latitude +'/'+ longitude;
        buscarDados(apiUrl);
 	});
 
@@ -38,7 +38,7 @@ function mostrarCard(estado) {
 	titleInfo.innerHTML = 'Informações climáticas sobre ' + estado;
 	
     card.style.display = 'block';
-	setTimeout(mostrargrafico, 1000);
+	setTimeout(mostrargrafico, 2000);
 	
 }
 
@@ -66,6 +66,7 @@ async function buscarDados(apiUrl) {
 		}
 		let data = await response.json();
 		estadoInfo.innerHTML = data.message
+		temperaturaInfo.innerHTML = data.temperatura
 	} catch (error) {
 	alert(error)
 	}

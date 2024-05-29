@@ -128,7 +128,9 @@ async def root(lat: str,long: str):
         grafico_ar(lat,long)
         
       
-        return {"message": f'Sua cidade é {nomeCidade}, O tempo agora está {descricao},A temperatura agora está {temperatura:.0f}°C'}
+        return {"message": f'Sua cidade é {nomeCidade}, O tempo agora está {descricao}, a temperatura é',
+        "temperatura":f'{temperatura:.0f}°C'       
+                }
     except Exception as e:
         return {"message": f'Não foi possivel encontrar Latitude {lat} e Longitude {long}' }
   
